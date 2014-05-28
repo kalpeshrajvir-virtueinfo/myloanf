@@ -1,0 +1,249 @@
+<?php
+include('connect.php');
+$Type=$_REQUEST['Type'];
+$Image=$_FILES['Image']['name'];
+$CustomerId=$_REQUEST['CustomerId'];
+$LoanId=$_REQUEST['LoanId'];
+move_uploaded_file($_FILES['Image']['tmp_name'],"LoanDocuments/".$_FILES['Image']['name']);
+if($Type == 'Application Package')
+{
+$insertreview="insert into Application_Package (CustomerId,LoanId,Application_Package,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Certification and Authorization')
+{
+$insertreview="insert into Certification_and_Authorization (CustomerId,LoanId,Certification_and_Authorization,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Proof of Self-Employment')
+{
+$insertreview="insert into Proof_of_Self_Employment (CustomerId,LoanId,Proof_of_Self-Employment,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Current Taxes and Insurance Information')
+{
+$insertreview="insert into Current_Taxes_and_Insurance_Information (CustomerId,LoanId,Current_TaxesDoc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Deposit Documentation')
+{
+$insertreview="insert into Deposit_Documentation (CustomerId,LoanId,Deposit_Documentation,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Homeowners Insurance Contact Information')
+{
+$insertreview="insert into  Homeowners_Insurance_Contact_Information (CustomerId,LoanId,Homeowners_InsuranceDoc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'other documents')
+{
+$insertreview="insert into Other_Documents (CustomerId,LoanId,Other_Documents,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Pay Stubs')
+{
+$insertreview="insert into PayStubs (CustomerId,LoanId,PayStubsDoc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Proof of Assets')
+{
+$insertreview="insert into Proof_of_Assets (CustomerId,LoanId,Proof_of_AssetsDoc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Revolving Debt Close Out Letter')
+{
+$insertreview="insert into Revolving_Debt_Close_Out_Letter (CustomerId,LoanId,Revolving_Debt_Close_Out_Letter,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'Verification Of  Ownership')
+{
+$insertreview="insert into Verification_Of_Ownership (CustomerId,LoanId,Verification_Of _OwnershipDoc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+else if($Type == 'W-2')
+{
+$insertreview="insert into W_2 (CustomerId,LoanId,W_2Doc,Type,Status) values ('$CustomerId','$LoanId','$Image','$Type','Under Review')";
+$resultreview=mysql_query($insertreview) or die(mysql_error());
+if($resultreview)
+{
+	
+	$selectdevice="select * from Customers where DeviceToken != '' and CustomerId='$CustomerId'";
+	$resultdevice=mysql_query($selectdevice) or die(mysql_error());
+	if(mysql_num_rows($resultdevice)>0)
+	{
+		while($rowdevice=mysql_fetch_assoc($resultdevice))
+		{
+			$DeviceToken=$rowdevice['DeviceToken'];
+	include('statuschangepushcustomer.php');
+	$result['LoanStatus']="Added";
+	}
+	}
+}
+}
+header("Content-Type: application/json; charset=utf-8",true);
+$data=json_encode($result);
+echo $data;
+?>
